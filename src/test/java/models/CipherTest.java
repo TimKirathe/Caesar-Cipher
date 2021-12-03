@@ -18,7 +18,7 @@ class CipherTest {
         Cipher newCipher = new Cipher();
         int shift = 15;
         String cipherText = "";
-        assertEquals(cipherText, newCipher.encrypt());
+        assertEquals(cipherText, newCipher.encrypt(""));
     }
 
     @Test
@@ -30,7 +30,32 @@ class CipherTest {
         int length = userText.length();
         for(int i = 0; i<length; i++) {
             char ch = userText.charAt(i); // Confirmed that ch is iterating through the characters inside the string given
-            assertEquals(ch, ch);
+            assertEquals(ch, 'I');
         }
+    }
+
+    @Test
+    public void encrypt_checksIfCharacterInStringIsLetter_boolean() {
+        Cipher newCipher = new Cipher();
+        int shift = 15;
+        String cipherText = "";
+        String userText = "I love going to the gym!";
+        int length = userText.length();
+        for(int i = 0; i<length; i++) {
+            char ch = userText.charAt(i); // Confirmed that ch is iterating through the characters inside the string given
+            if(Character.isLetter(ch)) {
+                if(Character.isLowerCase(ch)) {
+
+                }
+                else if (Character.isUpperCase(ch)) {
+
+                }
+            }
+            else {
+                cipherText += ch;
+            }
+            assertEquals(Character.isLetter(ch), Character.isLetter(ch));
+        }
+
     }
 }
