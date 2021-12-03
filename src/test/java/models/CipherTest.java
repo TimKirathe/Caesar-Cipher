@@ -13,5 +13,11 @@ class CipherTest {
         assertEquals(shift, newCipher.shift);
     }
 
-
+    @Test
+    public void encrypt_emptyCipheredStringIsReturned_String() {
+        Cipher newCipher = new Cipher();
+        int shift = 15;
+        String cipherText = "";
+        assertEquals(cipherText, newCipher.encrypt());
+    }
 }
