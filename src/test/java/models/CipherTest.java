@@ -10,7 +10,8 @@ class CipherTest {
     public void encrypt_returnsIntegerForShiftValue_Integer() {
         Cipher newCipher = new Cipher();
         int shift = 15;
-        assertEquals(shift, newCipher.encrypt());
+        assertEquals(shift, newCipher.shift);
     }
+
 
 }
