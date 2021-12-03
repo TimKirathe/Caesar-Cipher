@@ -20,4 +20,17 @@ class CipherTest {
         String cipherText = "";
         assertEquals(cipherText, newCipher.encrypt());
     }
+
+    @Test
+    public void encrypt_forLoopReturnsCharactersFromInputtedString_Char() {
+        Cipher newCipher = new Cipher();
+        int shift = 15;
+        String cipherText = "";
+        String userText = "I love going to the gym!";
+        int length = userText.length();
+        for(int i = 0; i<length; i++) {
+            char ch = userText.charAt(i); // Confirmed that ch is iterating through the characters inside the string given
+            assertEquals(ch, ch);
+        }
+    }
 }
