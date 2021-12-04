@@ -92,4 +92,33 @@ class CipherTest {
         assertEquals(true, newCipher.decrypt() instanceof String);
 
     }
-}
+
+    @Test
+    void decrypt_returnsTheSameUserTextBack_String() {
+        Cipher newCipher = new Cipher();
+        int shift = 15;
+        String userText = "I love going to the gym!";
+        String newUserText = "";
+        String cipheredText = newCipher.encrypt(userText);
+        int length = cipheredText.length();
+        for(int i = 0; i<length; i++) {
+            char ch = cipheredText.charAt(i);
+            if(Character.isLetter(ch)) {
+                if(Character.isLowerCase(ch)) {
+                    char newCh = (char) ('a' - (ch + 'a' - shift) % 26);
+                    newUserText += newCh;
+                }
+                else if (Character.isUpperCase(ch)) {
+                    char newCh = (char) ('A' - (ch + 'A' - shift) % 26);
+                    newUserText += newCh;
+                }
+            }
+            else {
+                newUserText += ch;
+            }
+        }
+
+
+
+        }
+    }
