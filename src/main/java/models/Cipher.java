@@ -1,7 +1,11 @@
 package models;
 
 public class Cipher {
-    int shift = 15;
+    private int shift = 15;
+
+    public int getShift() {
+        return shift;
+    }
 
 
     public String encrypt(String userText) {
