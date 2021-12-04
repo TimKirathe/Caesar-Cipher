@@ -139,4 +139,5 @@ class CipherTest {
 
         assertEquals(true, newCipher.decrypt().equals(userText));
         }
+
     }
