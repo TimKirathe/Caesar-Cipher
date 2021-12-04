@@ -6,6 +6,7 @@ public class App {
         Scanner input = new Scanner(System.in);
         Cipher newCipher = new Cipher();
 
+        System.out.println("-------------------------");
         System.out.println("Welcome to Caesar Cipher.");
         System.out.println("Please enter the text you would like to be ciphered.");
 
