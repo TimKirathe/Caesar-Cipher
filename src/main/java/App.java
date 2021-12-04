@@ -15,10 +15,16 @@ public class App {
         System.out.print("Your ciphered text: ");
         System.out.println(cipheredText);
 
+        System.out.println("Type 'decipher' in order to revert your text back to the original...");
+        String decipher = input.nextLine();
 
-        String decipheredText = newCipher.decrypt(cipheredText);
-        System.out.print("Your deciphered text: ");
-        System.out.println(decipheredText);
-
+        if (decipher.equals("decipher")) {
+            String decipheredText = newCipher.decrypt(cipheredText);
+            System.out.print("Your deciphered text: ");
+            System.out.println(decipheredText);
+        }
+        else {
+            System.out.print("Wrong text try again!");
+        }
     }
 }
