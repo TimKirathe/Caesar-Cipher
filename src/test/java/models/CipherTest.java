@@ -60,7 +60,7 @@ class CipherTest {
     }
 
     @Test
-    void encrypt_cipherTextReturnedIsNotEmptyString_boolean() {
+    public void encrypt_cipherTextReturnedIsNotEmptyString_boolean() {
         Cipher newCipher = new Cipher();
         int shift = 15;
         String cipherText = "";
@@ -70,13 +70,22 @@ class CipherTest {
             char ch = userText.charAt(i); // Confirmed that ch is iterating through the characters inside the string given
             if(Character.isLetter(ch)) {
                 if(Character.isLowerCase(ch)) {
-                    char newCh = (char) ('a' + (ch - 'a' + shift) % 26);
-                    cipherText += newCh;
-
+                    char newCh = (char) (ch+shift);
+                    if (newCh > 'z') {
+                        cipherText += (char) (ch - (26-shift));
+                    }
+                    else {
+                        cipherText += newCh;
+                    }
                 }
                 else if (Character.isUpperCase(ch)) {
-                    char newCh = (char) ('A' + (ch - 'A' + shift) % 26);
-                    cipherText += newCh;
+                    char newCh = (char) (ch+shift);
+                    if (newCh > 'Z') {
+                        cipherText += (char) (ch - (26-shift));
+                    }
+                    else {
+                        cipherText += newCh;
+                    }
                 }
             }
             else {
@@ -94,7 +103,7 @@ class CipherTest {
     }
 
     @Test
-    void decrypt_returnsTheSameUserTextBack_String() {
+    public void decrypt_returnsTheSameUserTextBack_String() {
         Cipher newCipher = new Cipher();
         int shift = 15;
         String userText = "I love going to the gym!";
@@ -105,12 +114,22 @@ class CipherTest {
             char ch = cipheredText.charAt(i);
             if(Character.isLetter(ch)) {
                 if(Character.isLowerCase(ch)) {
-                    char newCh = (char) ('a' - (ch + 'a' - shift) % 26);
-                    newUserText += newCh;
+                    char newCh = (char) (ch-shift);
+                    if (newCh < 'a') {
+                        newUserText += (char) (ch + (26-shift));
+                    }
+                    else {
+                        newUserText += newCh;
+                    }
                 }
                 else if (Character.isUpperCase(ch)) {
-                    char newCh = (char) ('A' - (ch + 'A' - shift) % 26);
-                    newUserText += newCh;
+                    char newCh = (char) (ch-shift);
+                    if (newCh < 'A') {
+                        newUserText += (char) (ch + (26-shift));
+                    }
+                    else {
+                        newUserText += newCh;
+                    }
                 }
             }
             else {
@@ -118,7 +137,6 @@ class CipherTest {
             }
         }
 
-
-
+        assertEquals(true, newCipher.decrypt().equals(userText));
         }
     }
