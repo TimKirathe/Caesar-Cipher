@@ -60,7 +60,7 @@ class CipherTest {
     }
 
     @Test
-    void encrypt_upperCaseAndLowerCaseCharacterMethod_boolean() {
+    void encrypt_cipherTextReturnedIsNotEmptyString_boolean() {
         Cipher newCipher = new Cipher();
         int shift = 15;
         String cipherText = "";
