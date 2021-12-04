@@ -85,4 +85,11 @@ class CipherTest {
             assertEquals(false, newCipher.encrypt(userText).equals(""));
         }
     }
+
+    @Test
+    void decrypt_checksThatDecryptMethodReturnsBackString_String() {
+        Cipher newCipher = new Cipher();
+        assertEquals(true, newCipher.decrypt() instanceof String);
+
+    }
 }
