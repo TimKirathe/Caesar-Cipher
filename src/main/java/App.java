@@ -12,9 +12,12 @@ public class App {
         String userText = input.nextLine();
 
         String cipheredText = newCipher.encrypt(userText);
+        System.out.print("Your ciphered text: ");
         System.out.println(cipheredText);
 
+
         String decipheredText = newCipher.decrypt(cipheredText);
+        System.out.print("Your deciphered text: ");
         System.out.println(decipheredText);
 
     }
