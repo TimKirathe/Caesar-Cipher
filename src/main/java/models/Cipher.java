@@ -2,7 +2,7 @@ package models;
 
 public class Cipher {
     int shift = 15;
-    String userText = "I love going to the gym!";
+
 
     public String encrypt(String userText) {
         String cipherText = "";
@@ -36,9 +36,8 @@ public class Cipher {
         return cipherText;
     }
 
-    public String decrypt() {
+    public String decrypt(String cipheredText) {
         String newUserText = "";
-        String cipheredText = encrypt(userText);
         int length = cipheredText.length();
         for(int i = 0; i<length; i++) {
             char ch = cipheredText.charAt(i);

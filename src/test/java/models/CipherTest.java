@@ -98,7 +98,7 @@ class CipherTest {
     @Test
     void decrypt_checksThatDecryptMethodReturnsBackString_String() {
         Cipher newCipher = new Cipher();
-        assertEquals(true, newCipher.decrypt() instanceof String);
+        assertEquals(true, newCipher.decrypt("") instanceof String);
 
     }
 
@@ -137,6 +137,6 @@ class CipherTest {
             }
         }
 
-        assertEquals(true, newCipher.decrypt().equals(userText));
+        assertEquals(true, newCipher.decrypt("X adkt vdxcv id iwt vnb!").equals(userText));
         }
     }
