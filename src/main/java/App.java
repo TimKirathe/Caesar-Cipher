@@ -13,5 +13,9 @@ public class App {
 
         String cipheredText = newCipher.encrypt(userText);
         System.out.println(cipheredText);
+
+        String decipheredText = newCipher.decrypt(cipheredText);
+        System.out.println(decipheredText);
+
     }
 }
